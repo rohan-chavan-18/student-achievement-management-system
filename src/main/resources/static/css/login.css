@@ -1,0 +1,276 @@
+/* ─── Imports ─── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Serif+Display&display=swap');
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:          #0f1117;
+  --bg-card:     #181c26;
+  --bg-surface:  #1e2333;
+  --bg-hover:    #242840;
+
+  --accent:      #6c8fff;
+  --accent-dim:  rgba(108, 143, 255, 0.12);
+  --accent-glow: rgba(108, 143, 255, 0.25);
+
+  --teal:        #3ecfb2;
+  --teal-dim:    rgba(62, 207, 178, 0.10);
+
+  --text-1:      #eef0f7;
+  --text-2:      #8b90a8;
+  --text-3:      #555c7a;
+
+  --border:      rgba(255, 255, 255, 0.07);
+  --border-mid:  rgba(255, 255, 255, 0.12);
+  --border-focus:rgba(108, 143, 255, 0.55);
+
+  --danger:      #ff6b6b;
+  --danger-dim:  rgba(255, 107, 107, 0.10);
+
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+
+  --font-body:   'DM Sans', sans-serif;
+  --font-serif:  'DM Serif Display', serif;
+  --transition:  0.2s ease;
+}
+
+html, body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+/* subtle dot-grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ambient glow */
+body::after {
+  content: '';
+  position: fixed;
+  top: -160px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(108, 143, 255, 0.1), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─── Card Container ─── */
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-lg);
+  padding: 36px 36px 32px;
+  animation: fadeUp 0.45s ease both;
+}
+
+/* logo / brand mark above toggle */
+.container::before {
+  content: '✦ Student Portal';
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-3);
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+/* ─── Toggle Tabs ─── */
+.toggle-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  margin-bottom: 32px;
+  gap: 4px;
+}
+
+.toggle-box button {
+  background: transparent;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-3);
+  padding: 9px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  letter-spacing: 0.01em;
+}
+
+.toggle-box button:hover { color: var(--text-2); }
+
+.toggle-box button.active {
+  background: var(--bg-card);
+  color: var(--text-1);
+  border: 1px solid var(--border-mid);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* ─── Forms ─── */
+.form {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeIn 0.25s ease both;
+}
+
+.form.active { display: flex; }
+
+.form h2 {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--text-1);
+  letter-spacing: 0.01em;
+  margin-bottom: 4px;
+}
+
+/* ─── Inputs & Select ─── */
+.form input,
+.form select {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-sm);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 14px;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form input::placeholder { color: var(--text-3); }
+
+.form input:hover,
+.form select:hover {
+  background: var(--bg-hover);
+  border-color: rgba(255,255,255,0.18);
+}
+
+.form input:focus,
+.form select:focus {
+  border-color: var(--border-focus);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  background: var(--bg-hover);
+}
+
+/* select arrow */
+.form select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%238b90a8' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 13px center;
+  padding-right: 36px;
+  color: var(--text-2);
+}
+
+.form select option {
+  background: var(--bg-surface);
+  color: var(--text-1);
+}
+
+/* ─── Submit Button ─── */
+.form button[type="submit"] {
+  width: 100%;
+  background: var(--accent);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 12px;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 4px 20px rgba(108, 143, 255, 0.3);
+}
+
+.form button[type="submit"]:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(108, 143, 255, 0.4);
+}
+
+.form button[type="submit"]:active {
+  transform: translateY(0);
+  opacity: 1;
+  box-shadow: none;
+}
+
+/* ─── Error Message ─── */
+.error {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--danger);
+  background: var(--danger-dim);
+  border: 1px solid rgba(255, 107, 107, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  text-align: center;
+  display: none;
+}
+
+.error:not(:empty) { display: block; }
+
+/* ─── Footer hint ─── */
+.container::after {
+  content: 'Secured · Student Achievement Portal';
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-3);
+  text-align: center;
+  margin-top: 28px;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Animations ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 480px) {
+  .container { padding: 28px 22px 24px; }
+  .form h2 { font-size: 22px; }
+}

@@ -1,0 +1,254 @@
+/* ─── Upload Page — matches dashboard.css design system ─── */
+
+/* FORM CARD */
+.form-card {
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  max-width: 700px;
+}
+
+.form-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.form-card-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--blue-dim);
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.form-card-title {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: -0.01em;
+}
+
+.form-card-sub {
+  font-size: 12px;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+
+/* FORM LAYOUT */
+.upload-form {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.form-row--2col { flex-direction: row; }
+
+.form-group { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.form-group--full { flex: 1 1 100%; }
+
+/* LABEL */
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.label-icon {
+  color: var(--text-3);
+  display: flex;
+  align-items: center;
+}
+
+/* INPUTS */
+.form-input,
+.form-select {
+  background: var(--surface-2);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r-sm);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  padding: 10px 13px;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-input::placeholder { color: var(--text-3); }
+
+.form-input:hover,
+.form-select:hover {
+  background: var(--surface-3);
+  border-color: rgba(255,255,255,0.16);
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: rgba(79,142,247,0.5);
+  box-shadow: 0 0 0 3px var(--blue-dim);
+  background: var(--surface-3);
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M2 3.5l3 3 3-3' stroke='%2340465e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 11px center;
+  padding-right: 32px;
+  cursor: pointer;
+}
+
+.form-select option { background: var(--surface-2); }
+
+/* FILE DROP */
+.file-drop {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--surface-2);
+  border: 1.5px dashed var(--border-mid);
+  border-radius: var(--r-md);
+  padding: 24px 20px;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+  align-items: center;
+}
+
+.file-drop:hover {
+  border-color: rgba(79,142,247,0.4);
+  background: var(--blue-dim);
+}
+
+.file-drop-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-drop-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--surface-3);
+  border: 1px solid var(--border-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+}
+
+.file-drop-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.file-drop-primary {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.file-drop-sub {
+  font-size: 11.5px;
+  color: var(--text-3);
+}
+
+.file-name-display {
+  font-size: 12px;
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 4px 12px;
+}
+
+/* SUBMIT BUTTON */
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--blue);
+  border: none;
+  border-radius: var(--r-sm);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 12px;
+  cursor: pointer;
+  transition: opacity 0.18s, transform 0.18s, box-shadow 0.18s;
+  box-shadow: 0 4px 20px rgba(79,142,247,0.3);
+}
+
+.submit-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(79,142,247,0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* MESSAGE */
+.upload-msg {
+  font-size: 13px;
+  font-weight: 500;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: var(--r-sm);
+  margin-top: 4px;
+}
+
+.upload-msg.success {
+  color: var(--green);
+  background: var(--green-dim);
+  border: 1px solid rgba(62,207,142,0.2);
+}
+
+.upload-msg.error {
+  color: var(--danger);
+  background: var(--danger-dim);
+  border: 1px solid rgba(247,99,99,0.2);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-row--2col { flex-direction: column; }
+  .form-card-header { padding: 16px 18px; }
+  .upload-form { padding: 18px; }
+}
+
+/* JS file name display */
+#pdfFile { display: none; }

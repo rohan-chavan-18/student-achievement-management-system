@@ -1,0 +1,147 @@
+/* ─── Records Page — matches dashboard.css design system ─── */
+
+/* 4-column stat cards on records page */
+.cards { grid-template-columns: repeat(4, 1fr); }
+
+.card--part { border-top: 2px solid var(--amber); }
+.card--part .card-icon-wrap { background: var(--amber-dim); color: var(--amber); }
+.card--part .card-glow { background: var(--amber); }
+
+/* SEARCH BAR */
+.search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 360px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r-sm);
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 9px 13px 9px 34px;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+  appearance: none;
+}
+
+.search-input::placeholder { color: var(--text-3); }
+
+.search-input:focus {
+  border-color: rgba(79,142,247,0.5);
+  box-shadow: 0 0 0 3px var(--blue-dim);
+}
+
+/* CHARTS SECTION */
+.charts-heading {
+  margin-top: 8px;
+}
+
+.charts-title {
+  font-family: var(--font-head);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-1);
+  letter-spacing: -0.02em;
+}
+
+.charts-sub {
+  font-size: 12.5px;
+  color: var(--text-2);
+  margin-top: 3px;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.chart-card {
+  background: var(--surface);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--r-lg);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.chart-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chart-card-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chart-card-icon--blue   { background: var(--blue-dim);   color: var(--blue); }
+.chart-card-icon--violet { background: var(--violet-dim); color: var(--violet); }
+.chart-card-icon--teal   { background: var(--teal-dim);   color: var(--teal); }
+.chart-card-icon--amber  { background: var(--amber-dim);  color: var(--amber); }
+
+.chart-card-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+
+.chart-wrap {
+  position: relative;
+  height: 180px;
+}
+
+.chart-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Delete / view buttons rendered by records.js — inherit dashboard data-table styles */
+.delete-btn {
+  background: var(--danger-dim);
+  border: 1px solid rgba(247,99,99,0.2);
+  color: var(--danger);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  transition: background 0.18s;
+}
+.delete-btn:hover { background: rgba(247,99,99,0.22); }
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .cards { grid-template-columns: 1fr 1fr; }
+  .charts-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .cards { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login & Signup</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+
+<div class="container">
+
+    <div class="toggle-box">
+        <button id="loginBtn" class="active">Login</button>
+        <button id="signupBtn">Sign Up</button>
+    </div>
+
+    <!-- LOGIN -->
+    <form id="loginForm" class="form active">
+        <h2>Login</h2>
+
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+
+        <select id="loginRole" required>
+            <option value="">Select Role</option>
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <button type="submit">Login</button>
+        <p id="loginError" class="error"></p>
+    </form>
+
+    <!-- SIGNUP -->
+    <form id="signupForm" class="form">
+        <h2>Sign Up</h2>
+
+        <input type="text" id="signupUsername" placeholder="Username" required>
+        <input type="password" id="signupPassword" placeholder="Password" required>
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+        <select id="signupRole">
+            <option value="student">Student</option>
+            <option value="admin">Admin</option>
+        </select>
+
+        <button type="submit">Sign Up</button>
+        <p id="signupError" class="error"></p>
+    </form>
+
+</div>
+
+
+
+<script src="/js/login.js"></script>
+</body>
+</html>
