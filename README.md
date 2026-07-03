@@ -47,6 +47,34 @@ It provides a centralized platform where students can upload their achievements 
 * Implemented features like file upload and reporting
 
 ---
+## 🗄️ Database Setup (MySQL)
+
+This project uses MySQL as the database, configured via command line.
+
+### Steps to setup database:
+
+1. Install MySQL Server
+
+2. Open MySQL Command Line Client
+
+3. Create database:
+
+   ```sql
+   CREATE DATABASE achievement_db;
+   ```
+
+4. Update credentials in `application.properties`:
+
+   ```properties
+   spring.datasource.url=jdbc:mysql://localhost:3306/achievement_db
+   spring.datasource.username=your_username
+   spring.datasource.password=your_password
+   ```
+
+5. Run the Spring Boot application
+
+The required tables will be created automatically using JPA.
+
 
 ## ▶️ How to Run the Project
 
