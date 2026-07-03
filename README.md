@@ -64,15 +64,15 @@ It provides a centralized platform where students can upload their achievements 
 
 ### Dashboard
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/dashboard.jpeg)
 
 ### Login Page
 
-![Login](screenshots/login.png)
+![Login](screenshots/login.jpeg)
 
 ### Records Page
 
-![Records](screenshots/records.png)
+![Records](screenshots/records.jpeg)
 
 ---
 
